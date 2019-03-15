@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	HelloJsp의 첫화면<br>
-	메인화면<br>
-	공식화면<br>
+	<h1><a href="./Mymember/list">연습 페이지 이동</a></h1>
 </body>
 </html>
