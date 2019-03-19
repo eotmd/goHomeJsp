@@ -26,9 +26,15 @@
 		memberList = (ArrayList<MemberDto>)request.getAttribute("memberList");
 		
 		for(MemberDto memberInfo : memberList){
+	%>
+	
+	
+	
+	
+	
 			
 		
-	%>
+	
 	
 	
 	<%=memberInfo.getNo()%>,
@@ -41,6 +47,7 @@
 	<%
 		}
 	%>
+	
 <jsp:include page="/Tail.jsp"></jsp:include>
 </body>
 </html>

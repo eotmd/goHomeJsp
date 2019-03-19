@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,70 +18,69 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-
-@WebServlet(value="/Mymember/add")
-public class MemberAdd extends HttpServlet{
+@WebServlet(value="/MyMember/one")
+public class MemberOneInfo extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		System.out.println("MemberAdd의 doGet을 실행한다.");
-		res.sendRedirect("./MyMemberAddForm.jsp");
-		
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		System.out.println("MemberServlet의 doPost를 탄다.");
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "jsp";
 		String password = "jsp";
 		
-//		req.setCharacterEncoding("UTF-8");
-		
-		String emailStr = req.getParameter("email");
-		String pwdStr = req.getParameter("password");
-		String nameStr = req.getParameter("name");
-		
 		String sql = "";
 		
-		
-		
 		try {
-			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection(url, user, password);
 			
-			sql = "insert into members";
-			sql += "(mno, email, pwd, mname, cre_date, mod_date)";
-			sql += "values(members_mno_seq.nextval, ?, ?, ?, sysdate, sysdate)";
-			
-			
+			sql = "SELECT MNO, MNAME, EMAIL, CRE_DATE";
+			sql += " FROM MEMBERS";
+			sql += " where email = ?";
 			
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, emailStr);
-			pstmt.setString(2, pwdStr);
-			pstmt.setString(3, nameStr);
+			rs = pstmt.executeQuery();	
 			
-			pstmt.executeUpdate();			//수정이 이루워졌을때 사용
-			
-			
-			res.sendRedirect("./list");
+			res.setContentType("text/html");
+			res.setCharacterEncoding("UTF-8");
 			
 			
-						
-		} catch (Exception e) {
+			
+			int mno = 0;
+			String mname = "";
+			String email = "";
+			String pwd = "";
+			Date createDate = null;
+			Date modifiedDate = null;
+			
+			if(rs.next()) {
+				mno = rs.getInt("MNO");
+				mname = rs.getString("MNAME");
+				email = rs.getString("EMAIL");
+				createDate = rs.getDate("CRE_DATE");
+				
+				MemberDto memberDto = new MemberDto(mno, mname, email, createDate);
+				
+				req.setAttribute("memberDto",memberDto);
+			} // while end
+			
+			
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/Mymember/InfoView.jsp");
+			
+			dispatcher.include(req, res);
+			
+			
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
-			req.setAttribute("error", e);
-			RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
-			dispatcher.forward(req, res);
-			
-		} finally {		
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {	
 			if(pstmt != null) {
 				try {
 					pstmt.close();
@@ -94,7 +97,5 @@ public class MemberAdd extends HttpServlet{
 				}
 			}
 		} // finally end
-		
 	}
-	
 }

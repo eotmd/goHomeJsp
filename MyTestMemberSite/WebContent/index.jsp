@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1><a href="./Mymember/list">연습 페이지 이동</a></h1>
+	<a href="./auth/login">연습 페이지 이동</a><br/>
+	
+	<p>이메일 검색</p>
+	
+	<form action="./MyMember/one" method="get">
+		이메일: <input type="text" name="email">
+		<input type="submit" value="검색">
+	</form>
 </body>
 </html>
