@@ -36,7 +36,7 @@ public class BoardList extends HttpServlet{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection(url, user, password);
 
-			sql = "SELECT B.BOARDNO, B.TITLE, M.EMAIL, B.CRE_DATE";
+			sql = "SELECT B.BOARDNO, M.MNO, B.TITLE, M.EMAIL, B.CRE_DATE";
 			sql += " FROM MEMBERS M, BOARD B";
 			sql += " WHERE M.MNO = B.MNO";
 			sql += " ORDER BY B.BOARDNO ASC";
@@ -56,6 +56,7 @@ public class BoardList extends HttpServlet{
 			
 			
 			int bno = 0;
+			int mno = 0;
 			String btitle = "";
 			String id = "";
 			Date createDate = null;
@@ -63,11 +64,12 @@ public class BoardList extends HttpServlet{
 			BoardDto boardDto = null;
 			while (rs.next()) {
 				bno = rs.getInt("BOARDNO");
+				mno = rs.getInt("MNO");
 				btitle = rs.getString("TITLE");
 				id = rs.getString("EMAIL");
 				createDate = rs.getDate("CRE_DATE");
 
-				boardDto = new BoardDto(bno, btitle, id, createDate);
+				boardDto = new BoardDto(bno, mno, btitle, id, createDate);
 				boardList.add(boardDto);
 				
 			} // while end

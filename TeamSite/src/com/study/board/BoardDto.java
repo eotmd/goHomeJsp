@@ -17,7 +17,7 @@ public class BoardDto {
 	
 	
 	
-	public BoardDto(int boardno, String title, String id , Date createDate) {
+	public BoardDto(int boardno,int mno, String title, String id , Date createDate) {
 		super();
 		this.boardno = boardno;
 		this.id = id;
