@@ -28,6 +28,9 @@
 
 %>
 <body>
+
+	<jsp:include page="./Header.jsp" />
+
 	<table>
 		<tr>
 			<td>글 번호</td>
@@ -50,5 +53,7 @@
 		<input type="button"; value="글쓰기"; onclick="location.href='./boardAdd'";>
 	
 	</form>
+	
+	<jsp:include page="./Tail.jsp" />
 </body>
 </html>
