@@ -34,7 +34,7 @@ public class BoardAdd extends HttpServlet{
 		
 		String titleStr = req.getParameter("title");
 		String contentsStr = req.getParameter("contents");
-		int mno = Integer.parseInt(req.getParameter("no"));
+		int mno = Integer.parseInt(req.getParameter("mno"));
 		
 		String sql = "";
 		

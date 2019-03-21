@@ -8,7 +8,7 @@
 	SPMS(Simple Project Management System)
 	<span style="float:right;">
 		<c:if test="${sessionScope.member != null}">
-			<a href="<%=request.getContextPath()%>/member/modify"	style="color:white;">
+			<a href="<%=request.getContextPath()%>/member/modify?no=${member.mno}"	style="color:white;">
 				${sessionScope.member.name}
 			</a>
 			<a href="<%=request.getContextPath()%>/member/logout"	style="color:white;">
