@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
@@ -15,15 +15,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value="/boarddetail")
-public class BoardDetail extends HttpServlet{
-	
+@WebServlet(value="/boardUpdate")
+public class BoardUpdate extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-//		res.sendRedirect("./form/boardDetailForm.jsp");
-		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -82,7 +78,7 @@ public class BoardDetail extends HttpServlet{
 			
 			
 			//req(HttpServletRequest)와 res(HttpServletResponse)를 포함시켜서 jsp로 출력을 위임한다.
-			RequestDispatcher dispatcher = req.getRequestDispatcher("./form/boardDetailForm.jsp");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("./form/boardUpdateForm.jsp");
 			
 			
 			dispatcher.forward(req, res);
@@ -126,12 +122,75 @@ public class BoardDetail extends HttpServlet{
 			}
 		} // finally end
 		
+
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
+		System.out.println("MemberUpdateServlet의 doPost를 탄다.");
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String user = "jsp";
+		String password = "jsp";
+
+		req.setCharacterEncoding("UTF-8");
+
+		String titleStr = req.getParameter("title");
+		System.out.println(req.getParameter("boardno"));
+		int boardno = Integer.parseInt(req.getParameter("boardno"));
+		String contentsStr = req.getParameter("contents");
 		
+
+		String sql = "";
+
+		try {
+
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection(url, user, password);
+
+			sql = "UPDATE BOARD";
+			sql += " SET TITLE = ?, CONTENTS = ?, MOD_DATE = SYSDATE";
+			sql += " WHERE BOARDNO = ?";
+			
+			
+			
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, titleStr);
+			pstmt.setString(2, contentsStr);
+			pstmt.setInt(3, boardno);
+
+			pstmt.executeUpdate(); // 수정이 이루워졌을때 사용
+
+			res.sendRedirect("/TeamSite/boarddetail?boardno="+boardno);
+
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		} // finally end
+
 	}
-	
+
 }

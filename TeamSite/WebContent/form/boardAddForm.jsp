@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="./boardAdd" method="post">
+	<form action="../boardAdd" method="post">
+		<input type="hidden" name="mno" value="${member.mno}">
 			<table style="width: 800px; height: 800px;">
 				<tr>
 					<td style="width: 50px; height: 20px; text-align: right;">제목: </td>
