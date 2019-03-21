@@ -7,18 +7,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="./boarddetail" method="post">
+	<form action="./boardAdd" method="post">
 			<table style="width: 800px; height: 800px;">
 				<tr>
-					<td colspan="2" style="width: 800px; height: 20px;">제목: </td>
+					<td style="width: 50px; height: 20px; text-align: right;">제목: </td>
+					<td>
+						<input name="title" type="text" maxlength="30" style="width: 740px;">
+					</td>
 				</tr>
 				<tr>
-					<td style="text-align: center; width: 50px;">내용: </td>
+					<td style="text-align: center; width: 50px; text-align: right;">내용: </td>
 					<td style="padding: 0px; vertical-align: top; text-align: left;" >
-						<textarea  rows="10" cols="30" style="width: 745px; height: 780px;"></textarea>
+						<textarea name="contents" style="width: 740px; height: 780px;" maxlength="2800"></textarea>
 					</td>
 				</tr>
 			</table>
+			<input type="submit" value="완료">
+			<input type="reset" value="지우기">
+			<input type="button" value="뒤로가기" onclick="location.href ='../main'">
 		</form>
 </body>
 </html>

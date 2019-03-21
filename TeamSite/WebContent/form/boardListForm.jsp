@@ -46,9 +46,9 @@
 		</c:forEach>
 		
 	</table>
-	<form action="">
+	<form action="./boardAdd">
+		<input type="hidden" name="no" value="${member.mno}">
 		<input type="button"; value="글쓰기"; onclick="location.href='./boardAdd'";>
-	
 	</form>
 </body>
 </html>
