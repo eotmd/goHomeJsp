@@ -20,7 +20,18 @@ public class BoardDto {
 	public BoardDto(int boardno,int mno, String title, String id , Date createDate) {
 		super();
 		this.boardno = boardno;
+		this.mno = mno;
 		this.id = id;
+		this.title = title;
+		this.createDate = createDate;
+	}
+	
+	public BoardDto(int boardno,int mno, String title,String contents, String id , Date createDate) {
+		super();
+		this.boardno = boardno;
+		this.mno = mno;
+		this.id = id;
+		this.contents = contents;
 		this.title = title;
 		this.createDate = createDate;
 	}

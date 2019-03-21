@@ -37,13 +37,18 @@
 		</tr>
 		<c:forEach var="boardDto" items="${boardList}">
 		<tr>
-			<td>${boardDto.boardno}</td>
-			<td><a href="./boarddetail?${bo }">${boardDto.title}</a></td>
+			
+			<td>${boardDto.boardno}<input type="hidden" name="boardno" value="${boardDto.boardno}"></td>
+			<td><a href="./boarddetail?boardno=${boardDto.boardno}">${boardDto.title}</a></td>
 			<td>${boardDto.id}</td>
 			<td>${boardDto.createDate}</td>
 		</tr>
 		</c:forEach>
 		
 	</table>
+	<form action="">
+		<input type="button"; value="글쓰기"; onclick="location.href='./boardAdd'";>
+	
+	</form>
 </body>
 </html>
