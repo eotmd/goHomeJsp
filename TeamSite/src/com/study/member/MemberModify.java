@@ -68,7 +68,7 @@ public class MemberModify extends HttpServlet {
 				
 				memberDto = new MemberDto();
 				
-				memberDto.setNo(mNo);
+				memberDto.setMno(mNo);
 				memberDto.setName(mName);
 				memberDto.setEmail(email);
 				memberDto.setCreateDate(creDate);

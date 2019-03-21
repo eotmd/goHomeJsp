@@ -22,17 +22,12 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		HttpSession session = req.getSession();
 		
-		MemberDto memberDto = (MemberDto)session.getAttribute("member");
 		
-		if(memberDto == null) {
+		
 			RequestDispatcher rd = req.getRequestDispatcher("../form/LoginForm.jsp");
 			rd.forward(req, res);
-		}else {
-			String contextPathStr = req.getContextPath() + "./list";
-			res.sendRedirect(contextPathStr);
-		}
+		
 		
 	} // doGet종료
 

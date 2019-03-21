@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class MemberDto {
 	
-	private	int no = 0;              
+	private	int mno = 0;              
 	private	String name = ""; 
 	private	String email = ""; 
 	private	String password = ""; 
@@ -17,17 +17,17 @@ public class MemberDto {
 	
 	
 	
-	public MemberDto(int no, String name, String email, Date createDate) {
+	public MemberDto(int mno, String name, String email, Date createDate) {
 		super();
-		this.no = no;
+		this.mno = mno;
 		this.name = name;
 		this.email = email;
 		this.createDate = createDate;
 	}
 
-	public MemberDto(int no, String name, String email, String password, Date createDate, Date modifiedDate) {
+	public MemberDto(int mno, String name, String email, String password, Date createDate, Date modifiedDate) {
 		super();
-		this.no = no;
+		this.mno = mno;
 		this.name = name;
 		this.email = email;
 		this.password = password;
@@ -41,19 +41,19 @@ public class MemberDto {
 		this.email = email;
 	}
 
-	public MemberDto(String name, String email, int no) {
+	public MemberDto(String name, String email, int mno) {
 		super();
 		this.name = name;
 		this.email = email;
-		this.no = no;
+		this.mno = mno;
 	}
 
-	public int getNo() {
-		return no;
+	public int getMno() {
+		return mno;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setMno(int mno) {
+		this.mno = mno;
 	}
 
 	public String getName() {
@@ -98,7 +98,7 @@ public class MemberDto {
 
 	@Override
 	public String toString() {
-		return "MemberDto [no=" + no + ", name=" + name + ", email=" + email + ", password=" + password
+		return "MemberDto [mno=" + mno + ", name=" + name + ", email=" + email + ", password=" + password
 				+ ", createDate=" + createDate + ", modifiedDate=" + modifiedDate + "]";
 	}
 	
