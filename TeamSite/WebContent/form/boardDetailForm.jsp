@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<input type="hidden" name="boardno" value="${boardDto.boardno}">
+	
 	<c:if test="${boardDto.mno != member.mno}">
 		<form action="./boardUpdate" method="get">
 			<table style="width: 800px; height: 800px;">
@@ -32,6 +32,7 @@
 	</c:if>
 	<c:if test="${boardDto.mno == member.mno}">
 		<form action="./boardUpdate" method="get">
+			<input type="hidden" name="boardno" value="${boardDto.boardno}">
 			<table style="width: 800px; height: 800px;">
 				<tr>
 					<td colspan="2" style="width: 700px; height: 20px;">제목: ${boardDto.title}</td>
