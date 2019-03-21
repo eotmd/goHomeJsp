@@ -60,7 +60,7 @@ public class MemberJoin extends HttpServlet {
 
 			pstmt.executeUpdate();
 
-			res.sendRedirect("./list");
+			res.sendRedirect("../");
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
