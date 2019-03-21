@@ -22,6 +22,8 @@ public class MemberJoin extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
+		
+		
 		res.sendRedirect("../form/memberJoinForm.jsp");
 
 	}
@@ -60,7 +62,7 @@ public class MemberJoin extends HttpServlet {
 
 			pstmt.executeUpdate();
 
-			res.sendRedirect("../");
+			res.sendRedirect("../member/login");
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

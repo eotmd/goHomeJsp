@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(value = "/member/delete")
 public class MemberDelete extends HttpServlet {
@@ -31,7 +32,7 @@ public class MemberDelete extends HttpServlet {
 		String user = "jsp";
 		String password = "jsp";
 
-		int mNo = Integer.parseInt(req.getParameter("no"));
+		int mNo = Integer.parseInt(req.getParameter("mno"));
 
 		String sql = "";
 
@@ -50,7 +51,11 @@ public class MemberDelete extends HttpServlet {
 
 			pstmt.executeUpdate();
 			
-			res.sendRedirect("./list");
+			HttpSession session = req.getSession();
+
+			session.invalidate();
+			
+			res.sendRedirect("../");
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

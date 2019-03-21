@@ -33,15 +33,19 @@
 	
 	<jsp:include page="./Header.jsp"/>
 	
-	<h1>${memberDto.name} 회원정보 조회</h1>
+	<h1>회원정보</h1>
 	<form action="../member/modify" method="post">
-		번호: <input type="text" id='mno' name="mno" value="${member.mno}"><br>
-		이름: <input type="text" name='name' value="${member.name}"><br>
-		이메일: <input type="text" name="email" value="${member.email}"><br>
-		가입일: ${requestScope.memberDto.createDate}<br>
+		회원번호<br>
+		${member.mno} <input type="hidden" id='mno' name="mno" value="${member.mno}"><br><br>
+		이름<br>
+		<input type="text" name='name' value="${memberDto.name}"><br><br>
+		이메일<br>
+		<input type="text" name="email" value="${memberDto.email}"><br><br>
+		가입일<br>
+		${requestScope.memberDto.createDate}<br><br>
 		<input type="submit" value="수정">
-		<input type="button" value="삭제" onclick="deleteUserFnc();">
-		<input type="button" value="뒤로가기" onclick="backPageFnc();">
+		<input type="button" value="회원탈퇴" onclick="deleteUserFnc();">
+		<input type="button" value="뒤로가기" onclick="backPageFnc();"><br><br>
 	</form>
 
 	<jsp:include page="./Tail.jsp"/>

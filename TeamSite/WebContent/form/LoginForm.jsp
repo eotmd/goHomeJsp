@@ -18,14 +18,14 @@
 		var emailObj = document.getElementById('email');
 		
 		if(emailObj.value == ''){
-			alert("이메일을 입력하지 않았습니다");
+			alert("이메일을 입력해 주세요.");
 			return false;
 		}
 		
 		var passwordObj = document.getElementById('pwd');
 		
 		if(passwordObj.value == ''){
-			alert("암호를 입력해 주세요!");
+			alert("암호를 입력해 주세요.");
 			return false;
 		}
 		
@@ -52,12 +52,12 @@
 <body>
 	<jsp:include page="./Header.jsp"/>
 	
-	<h2>BOARD</h2>
+	<h2></h2>
 	<form action="../member/login" id="loginForm" method="post">
-		<input type="text" id='email' name="email" placeholder="이메일"><br>
-		<input type="password" id='pwd' name="password" placeholder="비밀번호"><br>
+		<input type="text" id='email' name="email" placeholder="이메일"><br><br>
+		<input type="password" id='pwd' name="password" placeholder="비밀번호"><br><br>
 		<input type="button" value="로그인" onclick="loginSubmitFnc();">
-		<input type="button" value="회원가입" onclick="joinPageFnc();">
+		<input type="button" value="회원가입" onclick="joinPageFnc();"><br><br>
 	</form>
 	
 	<jsp:include page="./Tail.jsp"/>

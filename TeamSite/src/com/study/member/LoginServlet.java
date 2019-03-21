@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,13 +24,9 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		
-		
-		
-			RequestDispatcher rd = req.getRequestDispatcher("../form/LoginForm.jsp");
-			rd.forward(req, res);
-		
-		
+		RequestDispatcher rd = req.getRequestDispatcher("../form/LoginForm.jsp");
+		rd.forward(req, res);
+
 	} // doGet종료
 
 	@Override
