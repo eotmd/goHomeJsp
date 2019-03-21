@@ -35,7 +35,7 @@
 		<tr>
 			<td>${memberDto.mno}</td>
 			<td>
-				<a href='../member/modify?mno=${memberDto.mno}'>${memberDto.name}</a>
+				<a href='../member/modify?no=${memberDto.mno}'>${memberDto.name}</a>
 			</td>
 			<td>${memberDto.email}</td>
 			<td>${memberDto.createDate}</td>

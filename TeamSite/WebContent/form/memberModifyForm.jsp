@@ -12,11 +12,11 @@
 	}
 	
 	function deleteUserFnc() {
-		var obj = document.getElementById('no');
+		var idObj = document.getElementById('mno');
 		
-		var memberNo = obj.value;
+		var memberMno = idObj.value;
 		
-		location.href = './delete?no=' + memberNo;
+		location.href = './delete?mno=' + memberMno;
 	}
 </script>
 </head>
@@ -35,9 +35,9 @@
 	
 	<h1>${memberDto.name} 회원정보 조회</h1>
 	<form action="../member/modify" method="post">
-		번호: <input type="text" id='no' name="no" value="${memberDto.no}" readonly="readonly"><br>
-		이름: <input type="text" name='name' value="${memberDto.name}"><br>
-		이메일: <input type="text" name="email" value="${memberDto.email}"><br>
+		번호: <input type="text" id='mno' name="mno" value="${member.mno}"><br>
+		이름: <input type="text" name='name' value="${member.name}"><br>
+		이메일: <input type="text" name="email" value="${member.email}"><br>
 		가입일: ${requestScope.memberDto.createDate}<br>
 		<input type="submit" value="수정">
 		<input type="button" value="삭제" onclick="deleteUserFnc();">

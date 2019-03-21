@@ -32,7 +32,7 @@ public class MemberModify extends HttpServlet {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "jsp";
 		String password = "jsp";
-
+		System.out.println(req.getParameter("no"));
 		int mNo = Integer.parseInt(req.getParameter("no"));
 
 		String sql = "";
@@ -145,7 +145,7 @@ public class MemberModify extends HttpServlet {
 
 		String email = req.getParameter("email");
 		String name = req.getParameter("name");
-		int mNo = Integer.parseInt(req.getParameter("no"));
+		int mNo = Integer.parseInt(req.getParameter("mno"));
 
 		String sql = "";
 

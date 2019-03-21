@@ -74,9 +74,9 @@ public class LoginServlet extends HttpServlet {
 //			res.setCharacterEncoding("UTF-8");
 
 			if(rs.next()) {
-				email = rs.getString("email");
-				name = rs.getString("mname");
-				mno = rs.getInt("mno");
+				email = rs.getString("EMAIL");
+				name = rs.getString("MNAME");
+				mno = rs.getInt("MNO");
 				
 				// 2
 				MemberDto memberDto = new MemberDto(name, email, mno);
