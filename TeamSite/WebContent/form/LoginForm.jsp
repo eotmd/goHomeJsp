@@ -21,7 +21,7 @@ html, body {
 
 .inner {
 	display: table-cell;
-	vertical-align: middle;
+	vertical-align: top;
 	text-align: center;
 }
 </style>
@@ -72,7 +72,7 @@ html, body {
 		<div class="outer">
 			<div class="inner">
 					
-					<h2></h2>
+					<h2>로그인</h2>
 					<form action="../member/login" id="loginForm" method="post">
 						<input type="text" id='email' name="email" placeholder="이메일"><br>
 						<br> <input type="password" id='pwd' name="password"

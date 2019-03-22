@@ -20,7 +20,7 @@ html, body {
 
 .inner {
 	display: table-cell;
-	vertical-align: middle;
+	vertical-align: top;
 	text-align: center;
 }
 </style>
