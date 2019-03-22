@@ -25,7 +25,19 @@ html, body {
 </style>
 <script type="text/javascript">
 	function backPageFnc() {
-		location.href = './list';
+		location.href = '../';
+	}
+
+	function modifyUserFnc() {
+		var idObj = document.getElementById('mno');
+
+		var memberMno = idObj.value;
+
+		location.href = './modify?no=' + memberMno;
+
+		alert("회원정보가 수정되었습니다.");
+		
+		location.href = '../';
 	}
 
 	function deleteUserFnc() {
@@ -34,7 +46,7 @@ html, body {
 		var memberMno = idObj.value;
 
 		location.href = './delete?mno=' + memberMno;
-		
+
 		alert("게시판을 탈퇴하셨습니다.");
 	}
 </script>
@@ -61,7 +73,7 @@ html, body {
 				<br> 이메일<br> <input type="text" name="email"
 					value="${memberDto.email}"><br> <br> 가입일<br>
 				${requestScope.memberDto.createDate}<br> <br> <input
-					type="submit" value="수정"> <input type="button" value="회원탈퇴"
+					type="button" value="수정" onclick="modifyUserFnc();"> <input type="button" value="회원탈퇴"
 					onclick="deleteUserFnc();"> <input type="button"
 					value="뒤로가기" onclick="backPageFnc();"><br> <br>
 			</form>
