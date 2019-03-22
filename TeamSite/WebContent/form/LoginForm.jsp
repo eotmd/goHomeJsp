@@ -79,7 +79,8 @@ html, body {
 							placeholder="비밀번호"><br>
 						<br> <input type="button" value="로그인"
 							onclick="loginSubmitFnc();"> <input type="button"
-							value="회원가입" onclick="joinPageFnc();"><br>
+							value="회원가입" onclick="joinPageFnc();">
+							<input type="button" onclick="location.href ='/TeamSite/main'" value="뒤로가기"><br>
 						<br>
 					</form>
 			</div>

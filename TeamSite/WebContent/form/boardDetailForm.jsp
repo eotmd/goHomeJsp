@@ -38,9 +38,9 @@
 			<input type="hidden" name="boardno" value="${boardDto.boardno}">
 			<table style="width: 800px; height: 800px;">
 				<tr>
-					<td colspan="2" style="width: 700px; height: 20px;">제목:
+					<td colspan="2" style="width: 500px; height: 20px;">제목:
 						${boardDto.title}</td>
-					<td style="margin-right: 0px;">작성자(아이디): ${boardDto.id}</td>
+					<td style="margin-right: 0px; width: 300px;">작성자(아이디): ${boardDto.id}</td>
 				</tr>
 				<tr>
 					<td style="text-align: center; width: 50px;">내용:</td>

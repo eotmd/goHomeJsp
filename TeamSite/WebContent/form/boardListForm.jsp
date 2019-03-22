@@ -68,11 +68,13 @@ html, body {
 				</c:forEach>
 
 			</table>
+			<c:if test="${member.mno != null}">
 			<form action="./boardAdd">
 				<input style="" type="hidden" name="no" value="${member.mno}"><br>
 				<input type="button" ; value="글쓰기"
-					; onclick="location.href='./boardAdd'";>
+					 onclick="location.href='./boardAdd'";>
 			</form>
+			</c:if>
 		</div>
 	</div>
 

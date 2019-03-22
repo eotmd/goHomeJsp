@@ -66,10 +66,10 @@ public class BoardAdd extends HttpServlet{
 						
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
-			req.setAttribute("error", e);
-			RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
-			dispatcher.forward(req, res);
+			e.printStackTrace();
+//			req.setAttribute("error", e);
+//			RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
+//			dispatcher.forward(req, res);
 			
 		} finally {		
 			if(pstmt != null) {
