@@ -165,7 +165,7 @@ public class MemberModify extends HttpServlet {
 
 			pstmt.executeUpdate();
 
-			res.sendRedirect("../");
+			res.sendRedirect("./logout");
 
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
