@@ -12,17 +12,18 @@
 <body>
 
 	<jsp:include page="./Header.jsp" />
+	<br>
 	<c:if test="${boardDto.mno != member.mno}">
 		<form action="./boardUpdate" method="get">
 			<table style="width: 800px; height: 800px;">
 				<tr>
-					<td style="width: 100px; height: 20px;">제목: ${boardDto.title}</td>
-					<td style="margin-right: 0px; width: 200px;">작성자(아이디):
+					<td colspan="2" style="width: 500px; height: 20px;">제목: ${boardDto.title}</td>
+					<td style="margin-right: 0px; width: 300px;">작성자(아이디):
 						${boardDto.id}</td>
 				</tr>
 				<tr>
 					<td style="text-align: center; width: 50px;">내용:</td>
-					<td style="padding: 0px; vertical-align: top; text-align: left;">
+					<td colspan="2" style="padding: 0px; vertical-align: top; text-align: left;">
 						<textarea readonly="readonly" rows="10" cols="30"
 							style="width: 745px; height: 780px;">${boardDto.contents}</textarea>
 					</td>
