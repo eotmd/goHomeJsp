@@ -37,7 +37,8 @@ html, body {
 
 		alert("회원정보가 수정되었습니다. \n다시 로그인 해주시면 수정된 정보가 반영됩니다.");
 		
-		location.href = '../';
+
+
 	}
 
 	function deleteUserFnc() {
